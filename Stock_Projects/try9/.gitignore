@@ -1,5 +1,1 @@
-.idea
-.env
-Textfiles/*
-includes/connect.php
-info.php
+*.txt

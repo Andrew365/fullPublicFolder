@@ -227,15 +227,13 @@ function masterLoop(){
                 if(!$l_res){
                  echo "this prolem";   
                 }
-            $avgTotal = 0;
                 while($row3 = mysqli_fetch_array($l_res)){
                  
                     $lopen = $row3[0];
                     $lclose = $row3[1];
                     $lhigh = $row3[2];
                     $llow = $row3[3];
-                    $lavgPrice1 = ($lopen + $lclose + $lhigh + $llow);
-                    $avgTotal += $lavgPrice1;
+                    
                     $ltotal++;
                     
                 }
@@ -343,7 +341,7 @@ function masterLoop(){
         }
         $nextDayIncreasePercent = ($nextDayIncrease/$total) * 100;
         $nextDayDecreasePercent = ($nextDayDecrease/$total) * 100;
-        $lavgPrice1 = ($lopen + $lclose + $lhigh + $llow);
+                        $lavgPrice1 = ($lopen + $lclose + $lhigh + $llow);
 
         $averageIncreasePercent = 0;
         $averageDecreasePercent = 0;
@@ -352,7 +350,7 @@ function masterLoop(){
         $SellValue = $Sell;
     
         $avgPrice = ($avgPrice/$total);
-             $lavgPrice = ($avgTotal/$ltotal);
+             $lavgPrice = ($lavgPrice1/$ltotal);
                 
 
 
@@ -431,7 +429,7 @@ masterLoop();
     $avgPrice = $row['avgIncPct'];
     $lavgPrice = $row['daysDec'];
     $pctOfDaysDec = $row['pctOfDaysDec'];
-    $topTrendLinePrice = $row['avgDecPct'];
+    $avgDecPct = $row['avgDecPct'];
     $BuyValue = $row['BuyValue'];
     $SellValue = $row['SellValue'];
     if($BuyValue == 1){
@@ -450,8 +448,9 @@ $json = array(
     'daysInc' => $daysInc,
     'pctOfDaysInc' => $pctOfDaysInc,
     'avgPrice' => $avgPrice,
-    'topTrendLinePrice' => $lavgPrice,
+    'lavgPrice' => $lavgPrice,
     'pctOfDaysDec' => $pctOfDaysDec,
+    'avgDecPct' => $avgDecPct,
     'buy' => $BuyValue,
     'sell' => $SellValue
     );
