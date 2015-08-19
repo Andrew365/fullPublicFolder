@@ -1,0 +1,8 @@
+#splashpage{
+background: linear-gradient(rgba(197, 197, 211,0.7), rgba(197, 197, 211,0.7)),
+url('../../street.jpg')
+center center no-repeat fixed;
+height: 500px;
+background-size: cover;
+min-width: 100%;
+}
